@@ -9,6 +9,7 @@ data class SurveyDbo(
     @Column(name = "name") val name: String,
     @Column(name = "isTemplate") val isTemplate: Boolean,
     @Column(name = "fromUserId") val fromUserId: String?,
+    @Column(name = "threadId") val threadId: String?,
     @Column(name = "toUserID") val toUserId: String?,
 
     @OneToMany(mappedBy = "questionSurveyId", cascade = [CascadeType.ALL])

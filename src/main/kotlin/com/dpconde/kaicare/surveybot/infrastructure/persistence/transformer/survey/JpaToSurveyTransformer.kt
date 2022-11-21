@@ -16,6 +16,7 @@ class JpaToSurveyTransformer(
     override fun transform(input: SurveyDbo) = Survey(
         id = UUID.fromString(input.id),
         name = input.name,
+        threadId = input.threadId,
         isTemplate = input.isTemplate,
         fromUserId = input.fromUserId,
         toUserId = input.toUserId,

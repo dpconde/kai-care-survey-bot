@@ -6,7 +6,7 @@ interface Repository<T> {
 
     fun findAll(): List<T>
 
-    fun save(survey: T): T
+    fun save(element: T): T
 
     fun findById(id: UUID): T
 

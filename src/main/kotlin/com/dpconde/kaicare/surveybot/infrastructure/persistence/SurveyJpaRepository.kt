@@ -18,11 +18,9 @@ class SurveyJpaRepository(
 
     override fun findAll() = dao.findAll().map { jpaToSurveyTransformer.transform(it) }
 
-    override fun save(survey: Survey) = survey
+    override fun save(element: Survey) = element
         .let { surveyToJpaTransformer.transform(it) }
-        .let {
-            dao.save(it)
-        }
+        .let { dao.save(it) }
         .let { jpaToSurveyTransformer.transform(it) }
 
     override fun findById(id: UUID): Survey {

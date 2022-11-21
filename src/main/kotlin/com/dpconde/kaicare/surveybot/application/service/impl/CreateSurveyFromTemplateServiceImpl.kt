@@ -13,17 +13,18 @@ class CreateSurveyFromTemplateServiceImpl(
     private val repository: SurveyRepository
 ): CreateSurveyFromTemplateService {
 
-    override fun create(templateId: UUID, userFromId: String, userToId: String) =
+    override fun create(templateId: UUID, thread: String, userFromId: String, userToId: String) =
         repository.findById(templateId)
             .also { validateTemplate(it) }
-            .let { copySurvey(it, userFromId, userToId) }
+            .let { copySurvey(it, thread, userFromId, userToId) }
             .let { repository.save(it)  }
 
-    private fun copySurvey(template: Survey, userFromId: String, userToId: String): Survey {
+    private fun copySurvey(template: Survey, thread: String, userFromId: String, userToId: String): Survey {
         val surveyUUID = UUID.randomUUID()
         return template.copy(
             id = surveyUUID,
             isTemplate = false,
+            threadId = thread,
             fromUserId = userFromId,
             toUserId = userToId,
             questions = copyQuestions(template, surveyUUID)

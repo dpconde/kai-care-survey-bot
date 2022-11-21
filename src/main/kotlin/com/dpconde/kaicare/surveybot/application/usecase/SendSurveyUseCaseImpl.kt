@@ -13,7 +13,7 @@ class SendSurveyUseCaseImpl(
 ): SendSurveyUseCase {
 
     override fun execute(templateId: UUID, thread: String, userFromId: String, userToId: String) {
-        createSurveyFromTemplateService.create(templateId, userFromId, userToId).apply {
+        createSurveyFromTemplateService.create(templateId, thread, userFromId, userToId).apply {
             sendQuestionService.send(this.questions[0], thread, userFromId, userToId)
         }
     }

@@ -6,6 +6,7 @@ data class Survey(
     val id: UUID,
     val name: String,
     val isTemplate: Boolean,
+    val threadId: String?,
     val fromUserId: String?,
     val toUserId: String?,
     val questions: List<SurveyQuestion>

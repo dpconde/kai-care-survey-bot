@@ -5,6 +5,6 @@ import java.util.*
 
 interface CreateSurveyFromTemplateService {
 
-    fun create(templateId: UUID, userFromId: String, userToId: String): Survey
+    fun create(templateId: UUID, thread: String, userFromId: String, userToId: String): Survey
 
 }

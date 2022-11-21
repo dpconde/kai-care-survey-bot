@@ -16,6 +16,7 @@ class SurveyToJpaTransformer(
         id = input.id.toString(),
         name = input.name,
         isTemplate = input.isTemplate,
+        threadId = input.threadId,
         fromUserId = input.fromUserId,
         toUserId = input.toUserId,
         questions = input.questions.map { transformer.transform(it) }
