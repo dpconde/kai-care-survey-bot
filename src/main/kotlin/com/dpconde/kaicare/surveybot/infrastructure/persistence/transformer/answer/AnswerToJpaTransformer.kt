@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service
 class AnswerToJpaTransformer : DataTransformer<SurveyQuestionAnswer, SurveyQuestionAnswerDbo> {
 
     override fun transform(input: SurveyQuestionAnswer) = SurveyQuestionAnswerDbo(
-        id = input.id,
-        answerSurveyId = input.surveyId,
-        answerQuestionId = input.questionId,
+        id = input.id.toString(),
+        answerSurveyId = input.surveyId.toString(),
+        answerQuestionId = input.questionId.toString(),
         text = input.text,
         optionLetter = input.option
     )

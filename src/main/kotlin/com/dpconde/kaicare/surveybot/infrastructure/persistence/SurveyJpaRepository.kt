@@ -27,7 +27,7 @@ class SurveyJpaRepository(
 
     override fun findById(id: UUID): Survey {
         return jpaToSurveyTransformer.transform(
-            dao.findById(id).orElseThrow { ElementNotFoundException("Survey with ID $id not found.") }
+            dao.findById(id.toString()).orElseThrow { ElementNotFoundException("Survey with ID $id not found.") }
         )
     }
 }

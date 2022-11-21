@@ -6,6 +6,7 @@ import com.dpconde.kaicare.surveybot.infrastructure.persistence.dbo.SurveyDbo
 import com.dpconde.kaicare.surveybot.infrastructure.persistence.dbo.SurveyQuestionDbo
 import com.dpconde.kaicare.surveybot.infrastructure.persistence.transformer.DataTransformer
 import org.springframework.stereotype.Service
+import java.util.*
 
 @Service
 class JpaToSurveyTransformer(
@@ -13,7 +14,7 @@ class JpaToSurveyTransformer(
 ) : DataTransformer<SurveyDbo, Survey> {
 
     override fun transform(input: SurveyDbo) = Survey(
-        id = input.id,
+        id = UUID.fromString(input.id),
         name = input.name,
         isTemplate = input.isTemplate,
         fromUserId = input.fromUserId,

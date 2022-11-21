@@ -13,7 +13,7 @@ class SurveyToJpaTransformer(
 ) : DataTransformer<Survey, SurveyDbo> {
 
     override fun transform(input: Survey) = SurveyDbo(
-        id = input.id,
+        id = input.id.toString(),
         name = input.name,
         isTemplate = input.isTemplate,
         fromUserId = input.fromUserId,

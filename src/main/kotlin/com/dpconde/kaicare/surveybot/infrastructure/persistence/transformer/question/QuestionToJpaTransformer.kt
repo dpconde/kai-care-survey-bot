@@ -13,8 +13,8 @@ class QuestionToJpaTransformer(
 ) : DataTransformer<SurveyQuestion, SurveyQuestionDbo> {
 
     override fun transform(input: SurveyQuestion) = SurveyQuestionDbo(
-        id = input.id,
-        questionSurveyId = input.surveyId,
+        id = input.id.toString(),
+        questionSurveyId = input.surveyId.toString(),
         text = input.text,
         selection = input.selection.let { it?.let{ transformer.transform(it) } },
         answers = input.answers.map { transformer.transform(it) }
